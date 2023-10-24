@@ -1,34 +1,23 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 
 public class Main {
-    public static void main(String[] args) {
-        //ArrayList<String> arr = convertToBinary(parseOutString("My name is Michael"));
-       // addZerosInFront(regroup(concatBinaryStrings(arr)));
-        printASCIITable();
 
-    }
-
-    public static void printASCIITable() {
-        System.out.println("ASCII Value | Character");
-        System.out.println("----------------------");
-        for (int i = 0; i <= 127; i++) {
-            char character = (char) i;
-            System.out.printf("%12d | %s%n", i, character);
+    public static String encode(String aString) {
+        ArrayList<String> arr = convertToBinary(parseOutString(aString));
+        AsciiLocator al = new AsciiLocator();
+        String finalEncoding = "";
+        for (String each : addZerosInFront(regroup(concatBinaryStrings(arr)))) {
+            finalEncoding += al.getAsciiLetter(al.getAsciiDecimal(each));
         }
-    }
 
+        return finalEncoding;
+    }
 
     public static char[] parseOutString(String aString) {
         return aString.toCharArray();
-    }
-
-    public static ArrayList<Integer> convertToDecimal(ArrayList<String> finalBinaryArray) {
-        ArrayList<Integer> decimalArray = new ArrayList<>();
-        for (String each : finalBinaryArray) {
-
-        }
-        return decimalArray;
     }
 
     public static ArrayList<String> addZerosInFront(ArrayList<String> sixGroupArray) {
@@ -38,7 +27,6 @@ public class Main {
                 each = "0" + each;
             }
             newBinaryList.add(each);
-            System.out.println(each);
         }
         return newBinaryList;
     }
