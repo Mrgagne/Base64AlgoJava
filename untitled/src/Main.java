@@ -16,11 +16,11 @@ public class Main {
         return finalEncoding;
     }
 
-    public static char[] parseOutString(String aString) {
+    private static char[] parseOutString(String aString) {
         return aString.toCharArray();
     }
 
-    public static ArrayList<String> addZerosInFront(ArrayList<String> sixGroupArray) {
+    private static ArrayList<String> addZerosInFront(ArrayList<String> sixGroupArray) {
         ArrayList<String> newBinaryList = new ArrayList<>();
         for (String each : sixGroupArray) {
             while (each.length() < 8) {
@@ -31,7 +31,7 @@ public class Main {
         return newBinaryList;
     }
 
-    public static ArrayList<String> regroup(String binaryString) {
+    private static ArrayList<String> regroup(String binaryString) {
         ArrayList<String> groupsOfSix = new ArrayList<>();
 
         for (int i = 0; i < binaryString.length(); i += 6) {
@@ -47,7 +47,7 @@ public class Main {
         return groupsOfSix;
     }
 
-    public static String concatBinaryStrings(ArrayList<String> binaryArray) {
+    private static String concatBinaryStrings(ArrayList<String> binaryArray) {
         String binaryString = "";
         for (String each : binaryArray) {
             binaryString = binaryString.concat(each);
@@ -55,7 +55,7 @@ public class Main {
         return binaryString;
     }
 
-    public static ArrayList<String> convertToBinary(char[] charArray) {
+    private static ArrayList<String> convertToBinary(char[] charArray) {
         ArrayList<String> binaryArray = new ArrayList<>();
         for(int i = 0; i < charArray.length; i++) {
             binaryArray.add(String.format("%8s", Integer.toBinaryString(charArray[i])).replace(' ', '0'));
@@ -63,6 +63,4 @@ public class Main {
 
         return binaryArray;
     }
-
-
 }
